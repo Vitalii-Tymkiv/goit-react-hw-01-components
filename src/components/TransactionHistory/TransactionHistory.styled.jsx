@@ -31,6 +31,17 @@ export const TransactionTitle = styled.th`
   width: 33.3%;
   padding: 15px 5px;
 `;
+const SetTransactionTypeColor = props => {
+  if (props.type === 'invoice') {
+    return '#1403fc';
+  } else if (props.type === 'payment') {
+    return '#4caf50';
+  } else if (props.type === 'withdrawal') {
+    return '#f44336';
+  } else if (props.type === 'deposit') {
+    return '#ed9511';
+  }
+};
 
 export const TransactionCell = styled.td`
   padding: 15px 5px;
@@ -47,17 +58,8 @@ export const TransactionCell = styled.td`
     background-color: #c9dcdf;
     transition: background-color 250ms linear;
   }
-  color: ${props => {
-    if (props.type === 'invoice') {
-      return '#1403fc';
-    } else if (props.type === 'payment') {
-      return '#4caf50';
-    } else if (props.type === 'withdrawal') {
-      return '#f44336';
-    } else if (props.type === 'deposit') {
-      return '#ed9511';
-    }
-  }};
+
+  color: ${SetTransactionTypeColor};
 `;
 
 export const TransactionRow = styled.tr`
